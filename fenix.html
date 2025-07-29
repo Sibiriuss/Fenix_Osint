@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FENIX — особый бот для поиска информации</title>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -14,24 +14,26 @@
       font-family: 'Unbounded', sans-serif;
       color: #f1f1f1;
       overflow-x: hidden;
+      background: #111;
     }
     body::before {
       content: "";
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: radial-gradient(circle, #00ffe066, #000000 80%);
-      background-size: 200% 200%;
-      animation: backgroundMove 10s infinite alternate;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #00ffe022, transparent 70%), repeating-linear-gradient(45deg, #00ffe008 0px, #00ffe008 2px, transparent 2px, transparent 6px);
       z-index: -1;
-    }
-    @keyframes backgroundMove {
-      0% { background-position: 0% 0%; }
-      100% { background-position: 100% 100%; }
-    }header {
-  padding: 3rem 1rem 1rem;
+      animation: subtleMove 60s infinite linear;
+    }@keyframes subtleMove {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, 20px); }
+  100% { transform: translate(0, 0); }
+}
+
+header {
+  padding: 3rem 1rem;
   text-align: center;
 }
 header h1 {
@@ -55,7 +57,7 @@ header p {
   margin: auto;
 }
 .card {
-  background: rgba(30, 30, 30, 0.85);
+  background: #222;
   border-radius: 20px;
   padding: 1.5rem;
   box-shadow: 0 0 15px rgba(0, 255, 224, 0.15);
@@ -98,65 +100,61 @@ footer {
   font-size: 0.85rem;
 }
 
-/* Меню */
-.menu-icon {
-  position: fixed;
+.menu-toggle {
+  position: absolute;
   top: 1rem;
   right: 1rem;
-  width: 30px;
-  height: 22px;
   cursor: pointer;
   z-index: 10;
 }
-.menu-icon span {
-  display: block;
+.menu-toggle div {
+  width: 30px;
   height: 4px;
   background: #00ffe0;
-  margin: 5px 0;
-  border-radius: 2px;
+  margin: 6px 0;
   transition: 0.4s;
 }
-.side-menu {
+nav {
   position: fixed;
   top: 0;
   right: -250px;
   width: 250px;
-  height: 100vh;
-  background: #111;
-  box-shadow: -5px 0 15px rgba(0, 255, 224, 0.2);
-  padding: 2rem 1rem;
+  height: 100%;
+  background: #1a1a1a;
   transition: right 0.3s ease;
-  z-index: 9;
+  box-shadow: -5px 0 10px rgba(0,0,0,0.3);
+  padding: 3rem 1rem;
 }
-.side-menu a {
+nav.active {
+  right: 0;
+}
+nav a {
   display: block;
   color: #00ffe0;
   text-decoration: none;
-  margin: 1.5rem 0;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-.side-menu.open {
-  right: 0;
+  margin: 1rem 0;
+  font-weight: bold;
 }
 
   </style>
 </head>
 <body>
-  <div class="menu-icon" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
-  <nav class="side-menu" id="sideMenu">
+  <nav id="sideMenu">
     <a href="#">Главная</a>
-    <a href="https://t.me/YOUR_SUPPORT_LINK" target="_blank">Поддержка</a>
-  </nav>  <header>
+    <a href="https://t.me/spbot" target="_blank">Поддержка</a>
+  </nav>
+  <header>
     <h1>FENIX</h1>
     <p>
       Продвинутый Telegram-бот для поиска любой информации: ФИО, дата рождения, телефон, email, адрес.
     </p>
-  </header>  <section class="features">
+  </header>
+  <section class="features">
     <div class="card">
       <h3>Мгновенный пробив</h3>
       <p>
@@ -175,14 +173,17 @@ footer {
         Надёжный пробив по самой выгодной цене. Выбирай подходящий тариф — от 49₽ за поиск.
       </p>
     </div>
-  </section>  <div class="cta">
-    <a href="https://t.me/YOUR_BOT_LINK" target="_blank">Перейти в бот</a>
-  </div>  <footer>
+  </section>
+  <div class="cta">
+    <a href="https://t.me/bot" target="_blank">Перейти в бот</a>
+  </div>
+  <footer>
     © 2025 FENIX. Все права защищены.
-  </footer>  <script>
+  </footer>
+  <script>
     function toggleMenu() {
-      const menu = document.getElementById('sideMenu');
-      menu.classList.toggle('open');
+      document.getElementById('sideMenu').classList.toggle('active');
     }
-  </script></body>
+  </script>
+</body>
 </html>
