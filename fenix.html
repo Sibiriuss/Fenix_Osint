@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FENIX — особый бот для поиска информации</title>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Unbounded', sans-serif;
+      color: #f1f1f1;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle, #00ffe066, #000000 80%);
+      background-size: 200% 200%;
+      animation: backgroundMove 10s infinite alternate;
+      z-index: -1;
+    }
+    @keyframes backgroundMove {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }header {
+  padding: 3rem 1rem 1rem;
+  text-align: center;
+}
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #00ffe0;
+  text-shadow: 0 0 10px #00ffe0;
+}
+header p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #ccc;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+.card {
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px rgba(0, 255, 224, 0.15);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+}
+.card h3 {
+  color: #00ffe0;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+.cta {
+  text-align: center;
+  margin: 3rem 1rem;
+}
+.cta a {
+  background: #00ffe0;
+  color: #000;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  border-radius: 40px;
+  font-size: 1.25rem;
+  text-decoration: none;
+  box-shadow: 0 0 20px #00ffe0;
+  transition: background 0.3s ease, transform 0.2s;
+}
+.cta a:hover {
+  background: #00cbbf;
+  transform: scale(1.05);
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #555;
+  font-size: 0.85rem;
+}
+
+/* Меню */
+.menu-icon {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 10;
+}
+.menu-icon span {
+  display: block;
+  height: 4px;
+  background: #00ffe0;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  background: #111;
+  box-shadow: -5px 0 15px rgba(0, 255, 224, 0.2);
+  padding: 2rem 1rem;
+  transition: right 0.3s ease;
+  z-index: 9;
+}
+.side-menu a {
+  display: block;
+  color: #00ffe0;
+  text-decoration: none;
+  margin: 1.5rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.side-menu.open {
+  right: 0;
+}
+
+  </style>
+</head>
+<body>
+  <div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav class="side-menu" id="sideMenu">
+    <a href="#">Главная</a>
+    <a href="https://t.me/YOUR_SUPPORT_LINK" target="_blank">Поддержка</a>
+  </nav>  <header>
+    <h1>FENIX</h1>
+    <p>
+      Продвинутый Telegram-бот для поиска любой информации: ФИО, дата рождения, телефон, email, адрес.
+    </p>
+  </header>  <section class="features">
+    <div class="card">
+      <h3>Мгновенный пробив</h3>
+      <p>
+        Быстрый поиск по ФИО, email, номеру телефона или дате рождения. Всё в одном — моментально и точно.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Поддержка 24/7</h3>
+      <p>
+        Мгновенные ответы и помощь от команды. Решение любых вопросов — в любое время дня и ночи.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Доступные тарифы</h3>
+      <p>
+        Надёжный пробив по самой выгодной цене. Выбирай подходящий тариф — от 49₽ за поиск.
+      </p>
+    </div>
+  </section>  <div class="cta">
+    <a href="https://t.me/YOUR_BOT_LINK" target="_blank">Перейти в бот</a>
+  </div>  <footer>
+    © 2025 FENIX. Все права защищены.
+  </footer>  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('sideMenu');
+      menu.classList.toggle('open');
+    }
+  </script></body>
+</html>
