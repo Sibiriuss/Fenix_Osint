@@ -9,178 +9,236 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }body {
-  font-family: 'Unbounded', sans-serif;
-  background: #111;
-  color: #f1f1f1;
-  overflow-x: hidden;
-  position: relative;
-  min-height: 100vh;
-}
+    }
+    body {
+      font-family: 'Unbounded', sans-serif;
+      background: #111;
+      color: #f1f1f1;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at center, #00ffe022, transparent 70%),
-    repeating-linear-gradient(45deg, #00ffe008 0px, #00ffe008 2px, transparent 2px, transparent 6px);
-  z-index: -1;
-  animation: subtleMove 60s infinite linear;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at center, #00ffe022, transparent 70%),
+        repeating-linear-gradient(45deg, #00ffe008 0px, #00ffe008 2px, transparent 2px, transparent 6px);
+      z-index: -1;
+      animation: subtleMove 60s infinite linear;
+    }
 
-@keyframes subtleMove {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(-20px, 20px); }
-  100% { transform: translate(0, 0); }
-}
+    @keyframes subtleMove {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-20px, 20px); }
+      100% { transform: translate(0, 0); }
+    }
 
-.menu-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 30px;
-  height: 24px;
-  cursor: pointer;
-  z-index: 1001;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  user-select: none;
-}
+    .menu-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      user-select: none;
+    }
 
-.menu-toggle div {
-  height: 4px;
-  background-color: #00ffe0;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
+    .menu-toggle div {
+      height: 4px;
+      background-color: #00ffe0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
 
-.menu-toggle.active div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.menu-toggle.active div:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+    .menu-toggle.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-toggle.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
-nav.side-menu {
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 260px;
-  height: 100%;
-  background: #1a1a1a;
-  box-shadow: 3px 0 15px rgba(0,0,0,0.7);
-  padding: 3rem 1rem 1rem 1rem;
-  transition: left 0.3s ease;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-}
+    nav.side-menu {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100%;
+      background: #1a1a1a;
+      box-shadow: 3px 0 15px rgba(0,0,0,0.7);
+      padding: 3rem 1rem 1rem 1rem;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+    }
 
-nav.side-menu.active {
-  left: 0;
-}
+    nav.side-menu.active {
+      left: 0;
+    }
 
-nav.side-menu a {
-  color: #00ffe0;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin: 1rem 0;
-  padding: 0.5rem 0.5rem;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-}
+    nav.side-menu a {
+      color: #00ffe0;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin: 1rem 0;
+      padding: 0.5rem 0.5rem;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+    }
 
-nav.side-menu a:hover {
-  background-color: #00ffe0;
-  color: #111;
-}
+    nav.side-menu a:hover {
+      background-color: #00ffe0;
+      color: #111;
+    }
 
-header {
-  padding: 3rem 1rem 2rem;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
+    header {
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
 
-header h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  color: #00ffe0;
-  text-shadow: 0 0 10px #00ffe0;
-}
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: #00ffe0;
+      text-shadow: 0 0 10px #00ffe0;
+    }
 
-.content {
-  max-width: 800px;
-  margin: auto;
-  padding: 1rem;
-}
+    .content {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
 
-.content h2 {
-  font-size: 1.3rem;
-  color: #00ffe0;
-  margin-top: 2rem;
-}
+    .content h2 {
+      font-size: 1.3rem;
+      color: #00ffe0;
+      margin-top: 2rem;
+    }
 
-.content p {
-  font-size: 0.95rem;
-  margin: 0.5rem 0;
-  color: #ccc;
-  line-height: 1.6;
-}
+    .content p {
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
+      color: #ccc;
+      line-height: 1.6;
+    }
 
-.footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.9rem;
-  color: #555;
-}
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
 
+    /* Кнопка музыки слева сверху */
+    .music-btn {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #00ffe0, #00a8a8);
+      border-radius: 12px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 8px #00ffe0cc;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1002;
+    }
+    .music-btn:hover {
+      background: linear-gradient(135deg, #00a8a8, #007474);
+      box-shadow: 0 0 16px #00fff0cc;
+    }
+    .music-btn svg {
+      fill: white;
+      width: 22px;
+      height: 22px;
+      transition: transform 0.3s ease;
+    }
+    .music-btn.paused svg {
+      transform: scale(0.9);
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
+  <button class="music-btn" id="musicToggle" title="Вкл/выкл музыку" aria-label="Переключить музыку">
+    <svg viewBox="0 0 24 24" id="musicIcon" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+      <path d="M16.5 12a4.5 4.5 0 0 1-1.5 3.5v-7a4.5 4.5 0 0 1 1.5 3.5z" fill="#00ffe0"/>
+      <path d="M19 12a7 7 0 0 0-2.1-5v10a7 7 0 0 0 2.1-5z" fill="#00ffe0"/>
+    </svg>
+  </button>
+
   <div class="menu-toggle" id="menuToggle" aria-label="Открыть меню" role="button" tabindex="0">
     <div></div>
     <div></div>
     <div></div>
-  </div>  <nav class="side-menu" id="sideMenu" aria-hidden="true">
+  </div>
+  <nav class="side-menu" id="sideMenu" aria-hidden="true">
     <a href="index.html" tabindex="0">Главная страница</a>
     <a href="docs.html" tabindex="0">Документация</a>
     <a href="#" tabindex="0">Пользовательское соглашение</a>
     <a href="https://t.me/YOUR_SUPPORT" target="_blank" rel="noopener noreferrer" tabindex="0">Поддержка</a>
-  </nav>  <header>
+  </nav>
+  <header>
     <h1>Fenix</h1>
-  </header>  <div class="content">
-    <h2>📄 Документация: Telegram-бот «FENIX OSINT»</h2><h2>📌 Назначение</h2>
-<p>Бот предназначен для быстрого поиска информации по людям в загруженных базах данных.</p>
+  </header>
+  <div class="content">
+    <h2>📄 Документация: Telegram-бот «FENIX OSINT»</h2>
+    <h2>📌 Назначение</h2>
+    <p>Бот предназначен для быстрого поиска информации по людям в загруженных базах данных.</p>
 
-<h2>🚀 Команды</h2>
-<p><strong>/start</strong> — запуск бота. Показывает главное меню.</p>
-<p><strong>🔍 Поиск</strong> — открывает меню поиска. Доступны 3 режима:<br>
-  • Поиск по номеру телефона<br>
-  • Поиск по ФИО + дате рождения<br>
-  • А также по почте</p>
+    <h2>🚀 Команды</h2>
+    <p><strong>/start</strong> — запуск бота. Показывает главное меню.</p>
+    <p><strong>🔍 Поиск</strong> — открывает меню поиска. Доступны 3 режима:<br>
+      • Поиск по номеру телефона<br>
+      • Поиск по ФИО + дате рождения<br>
+      • А также по почте
+    </p>
 
-<p><strong>/statistic</strong> — показывает полную статистику:<br>
-  • Количество записей в базе<br>
-  • Информация о подписке<br>
-  • Сколько всего было сделано запросов</p>
+    <p><strong>/statistic</strong> — показывает полную статистику:<br>
+      • Количество записей в базе<br>
+      • Информация о подписке<br>
+      • Сколько всего было сделано запросов
+    </p>
 
-<h2>⚠️ Примечание</h2>
-<p>Бот находится на стадии разработки, но работу можно опробовать на главной странице сайта.</p>
-
-  </div>  <div class="footer">
+    <h2>⚠️ Примечание</h2>
+    <p>Бот находится на стадии разработки, но работу можно опробовать на главной странице сайта.</p>
+  </div>
+  <div class="footer">
     © 2025 FENIX. Все права защищены.
-  </div>  <script>
+  </div>
+
+  <!-- Аудио -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
     const menuToggle = document.getElementById('menuToggle');
     const sideMenu = document.getElementById('sideMenu');
+    const music = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+
+    let isMusicPlaying = true;
 
     function toggleMenu() {
       const isActive = menuToggle.classList.toggle('active');
@@ -189,7 +247,6 @@ header h1 {
     }
 
     menuToggle.addEventListener('click', toggleMenu);
-
     menuToggle.addEventListener('keydown', (e) => {
       if(e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -204,5 +261,28 @@ header h1 {
         sideMenu.setAttribute('aria-hidden', 'true');
       }
     });
-  </script></body>
+
+    // Плавное увеличение громкости при загрузке
+    music.volume = 0;
+    let fade = setInterval(() => {
+      if (music.volume < 1) {
+        music.volume = Math.min(1, music.volume + 0.01);
+      } else {
+        clearInterval(fade);
+      }
+    }, 100);
+
+    // Переключение музыки по кнопке
+    musicToggle.addEventListener('click', () => {
+      if (isMusicPlaying) {
+        music.pause();
+        musicToggle.classList.add('paused');
+      } else {
+        music.play();
+        musicToggle.classList.remove('paused');
+      }
+      isMusicPlaying = !isMusicPlaying;
+    });
+  </script>
+</body>
 </html>
