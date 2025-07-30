@@ -21,7 +21,6 @@
       min-height: 100vh;
     }
 
-    /* Анимированный фон с плавным переливом */
     body::before {
       content: "";
       position: fixed;
@@ -47,9 +46,9 @@
       100% { transform: translate(0, 0); }
     }
 
-    /* Меню гамбургер и боковая панель */
+    /* Кнопка меню гамбургер */
     .menu-toggle {
-      position: absolute; /* НЕ fixed, чтобы не следовать при прокрутке */
+      position: absolute;
       top: 1rem;
       right: 1rem;
       width: 30px;
@@ -69,7 +68,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Состояние "крестик" при активном меню */
     .menu-toggle.active div:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
@@ -83,7 +81,7 @@
     nav.side-menu {
       position: fixed;
       top: 0;
-      left: -260px; /* скрыто за экраном */
+      left: -260px;
       width: 260px;
       height: 100%;
       background: #1a1a1a;
@@ -115,6 +113,39 @@
       color: #111;
     }
 
+    /* Кнопка музыки слева сверху, красивая */
+    .music-btn {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #00ffe0, #00a8a8);
+      border-radius: 12px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 8px #00ffe0cc;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1002;
+    }
+    .music-btn:hover {
+      background: linear-gradient(135deg, #00a8a8, #007474);
+      box-shadow: 0 0 16px #00fff0cc;
+    }
+    .music-btn svg {
+      fill: white;
+      width: 22px;
+      height: 22px;
+      transition: transform 0.3s ease;
+    }
+    .music-btn.paused svg {
+      transform: scale(0.9);
+      opacity: 0.6;
+    }
+
     header {
       padding: 3rem 1rem;
       text-align: center;
@@ -136,7 +167,6 @@
       color: #ccc;
     }
 
-    /* Плитки с параллаксом */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -159,13 +189,11 @@
       user-select: none;
     }
 
-    /* Наведение мыши (ПК) */
     .card:hover {
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(0, 255, 224, 0.5);
     }
 
-    /* Класс для увеличения при касании на мобильных */
     .card.touch-active {
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(0, 255, 224, 0.5);
@@ -217,6 +245,16 @@
 </head>
 <body>
 
+  <!-- Кнопка музыки -->
+  <button class="music-btn" id="musicToggle" title="Вкл/выкл музыку" aria-label="Переключить музыку">
+    <!-- Иконка динамика (играет) -->
+    <svg viewBox="0 0 24 24" id="musicIcon" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+      <path d="M16.5 12a4.5 4.5 0 0 1-1.5 3.5v-7a4.5 4.5 0 0 1 1.5 3.5z" fill="#00ffe0"/>
+      <path d="M19 12a7 7 0 0 0-2.1-5v10a7 7 0 0 0 2.1-5z" fill="#00ffe0"/>
+    </svg>
+  </button>
+
   <!-- Меню гамбургер -->
   <div class="menu-toggle" id="menuToggle" aria-label="Открыть меню" role="button" tabindex="0">
     <div></div>
@@ -226,62 +264,45 @@
 
   <!-- Боковое меню -->
   <nav class="side-menu" id="sideMenu" aria-hidden="true">
-    <a href="#" tabindex="0">Главная страница</a>
-    <a href="docs.html" tabindex="0">Документация</a>
-    <a href="#" tabindex="0">Пользовательское соглашение</a>
-    <a href="https://t.me/Fenix_Support_BBot" target="_blank" rel="noopener noreferrer" tabindex="0">Поддержка</a>
+    <a href="#">Главная страница</a>
+    <a href="docs.html">Документация</a>
+    <a href="#">Пользовательское соглашение</a>
+    <a href="https://t.me/YOUR_SUPPORT" target="_blank" rel="noopener noreferrer">Поддержка</a>
   </nav>
 
   <header>
     <h1>FENIX</h1>
-    <p>
-      Продвинутый Telegram-бот для поиска информации: ФИО, дата рождения, телефон, email, адрес.
-    </p>
+    <p>Продвинутый Telegram-бот для поиска информации: ФИО, дата рождения, телефон, email, адрес.</p>
   </header>
 
   <section class="features">
-    <div class="card" tabindex="0" role="button" aria-pressed="false">
-      <h3>Мгновенный пробив</h3>
-      <p>Быстрый поиск по ФИО, email, номеру телефона или дате рождения. Всё в одном — моментально и точно.</p>
-    </div>
-    <div class="card" tabindex="0" role="button" aria-pressed="false">
-      <h3>Поддержка 24/7</h3>
-      <p>Мгновенные ответы и помощь от команды. Решение любых вопросов — в любое время дня и ночи.</p>
-    </div>
-    <div class="card" tabindex="0" role="button" aria-pressed="false">
-      <h3>Доступные тарифы</h3>
-      <p>Надёжный пробив по самой выгодной цене. Выбирай подходящий тариф — от 49₽ за поиск.</p>
-    </div>
+    <div class="card"><h3>Мгновенный пробив</h3><p>Быстрый поиск по ФИО, email, номеру телефона или дате рождения. Всё в одном — моментально и точно.</p></div>
+    <div class="card"><h3>Поддержка 24/7</h3><p>Мгновенные ответы и помощь от команды. Решение любых вопросов — в любое время дня и ночи.</p></div>
+    <div class="card"><h3>Доступные тарифы</h3><p>Надёжный пробив по самой выгодной цене. Выбирай подходящий тариф — от 49₽ за поиск.</p></div>
   </section>
 
   <div class="cta">
-    <a href="https://t.me/Fenixx_Osint_Bot" target="_blank" rel="noopener noreferrer">Перейти в бот</a>
+    <a href="https://t.me/YOUR_BOT_LINK" target="_blank">Перейти в бот</a>
   </div>
 
   <footer>
     © 2025 FENIX. Все права защищены.
   </footer>
 
+  <!-- Аудио -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const sideMenu = document.getElementById('sideMenu');
-
-    function toggleMenu() {
-      const isActive = menuToggle.classList.toggle('active');
-      sideMenu.classList.toggle('active', isActive);
-      sideMenu.setAttribute('aria-hidden', !isActive);
-    }
+    const music = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicIcon = document.getElementById('musicIcon');
+    let isMusicPlaying = true;
 
     menuToggle.addEventListener('click', toggleMenu);
-
-    // Закрытие меню по нажатию на ссылку Документация
-    document.querySelector('nav.side-menu a[href="docs.html"]').addEventListener('click', () => {
-      menuToggle.classList.remove('active');
-      sideMenu.classList.remove('active');
-      sideMenu.setAttribute('aria-hidden', 'true');
-    });
-
-    // Открытие меню клавишами Enter и Space
     menuToggle.addEventListener('keydown', (e) => {
       if(e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -289,7 +310,12 @@
       }
     });
 
-    // Закрыть меню при клике вне меню
+    function toggleMenu() {
+      const isActive = menuToggle.classList.toggle('active');
+      sideMenu.classList.toggle('active', isActive);
+      sideMenu.setAttribute('aria-hidden', !isActive);
+    }
+
     document.addEventListener('click', (e) => {
       if (!sideMenu.contains(e.target) && !menuToggle.contains(e.target)) {
         menuToggle.classList.remove('active');
@@ -298,21 +324,13 @@
       }
     });
 
-    // Логика карточек с touch
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
-      card.addEventListener('touchstart', () => {
-        card.classList.add('touch-active');
-      });
-      card.addEventListener('touchend', () => {
-        card.classList.remove('touch-active');
-      });
-      card.addEventListener('touchcancel', () => {
-        card.classList.remove('touch-active');
-      });
+      card.addEventListener('touchstart', () => card.classList.add('touch-active'));
+      card.addEventListener('touchend', () => card.classList.remove('touch-active'));
+      card.addEventListener('touchcancel', () => card.classList.remove('touch-active'));
     });
 
-    // Плавное появление при скролле
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       cards.forEach(card => {
@@ -322,6 +340,27 @@
         }
         card.style.opacity = scrollY > card.offsetTop - window.innerHeight ? 1 : 0;
       });
+    });
+
+    // Плавное увеличение громкости при загрузке
+    music.volume = 0;
+    let fade = setInterval(() => {
+      if (music.volume < 1) {
+        music.volume = Math.min(1, music.volume + 0.01);
+      } else {
+        clearInterval(fade);
+      }
+    }, 100);
+
+    musicToggle.addEventListener('click', () => {
+      if (isMusicPlaying) {
+        music.pause();
+        musicToggle.classList.add('paused');
+      } else {
+        music.play();
+        musicToggle.classList.remove('paused');
+      }
+      isMusicPlaying = !isMusicPlaying;
     });
   </script>
 </body>
