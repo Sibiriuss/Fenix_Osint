@@ -227,7 +227,7 @@
   <!-- Боковое меню -->
   <nav class="side-menu" id="sideMenu" aria-hidden="true">
     <a href="#" tabindex="0">Главная страница</a>
-    <a href="#" tabindex="0">Документация</a>
+    <a href="docs.html" tabindex="0">Документация</a>
     <a href="#" tabindex="0">Пользовательское соглашение</a>
     <a href="https://t.me/YOUR_SUPPORT" target="_blank" rel="noopener noreferrer" tabindex="0">Поддержка</a>
   </nav>
@@ -273,6 +273,13 @@
     }
 
     menuToggle.addEventListener('click', toggleMenu);
+
+    // Закрытие меню по нажатию на ссылку Документация
+    document.querySelector('nav.side-menu a[href="docs.html"]').addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      sideMenu.classList.remove('active');
+      sideMenu.setAttribute('aria-hidden', 'true');
+    });
 
     // Открытие меню клавишами Enter и Space
     menuToggle.addEventListener('keydown', (e) => {
